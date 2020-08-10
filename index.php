@@ -20,30 +20,16 @@ echo '<h1>Quantidade de Linhas na Planilha ' , $obj->getQtdeLinhas(), '</h1><br>
 /* Chama o método que inseri os dados e captura a quantidade linhas importadas */
 $linhasImportadas = $obj->insertDados();
 
+/* Imprime a quantidade de linhas importadas */
+echo '<h2><br/>Foram importadas ', $linhasImportadas, ' linhas</h2>';
+
 /* Chama o método que exibe os erros*/
 
 /* Imprime a quantidade de linhas importadas e erros*/
-echo '<h2><br/>Foram importadas '. $linhasImportadas['insert'].' linhas</h2>';
 
-if ( $linhasImportadas['novo_relacaoeliminacao'] > 0 ){
-    echo '<h3><br/>Foram criados: ', $linhasImportadas['novo_relacaoeliminacao'], ' novos registros na tabela Relação Eliminação!</h3>';
-}
+//echo '<h2><br/>Foram importadas '. $linhasImportadas['insert'].' linhas</h2>';
 
-if ( $linhasImportadas['erro'] > 0){
-    echo '<h4><br/>Foram gerados: '. $linhasImportadas['erro']. ' erros dos quais:</h4>';
 
-    if ( $linhasImportadas['erro_relacaoeliminacao'] > 0){
-        echo '<h5><br/>'. $linhasImportadas['erro_relacaoeliminacao']. ' erros para inserir na tabela relacao eliminacao</h5>';
-    }
-
-    if ( $linhasImportadas['erro_unidade'] > 0){
-        echo '<h5><br/>'. $linhasImportadas['erro_unidade'], ' erros no campo Unidade (nome divergente)</h5>';
-    }
-    if ( $linhasImportadas['erro_classificacao'] > 0){
-        echo '<h5><br/>'. $linhasImportadas['erro_classificacao']. ' erros com classificação </h5>';        
-    }
-    
-}
 
 
 
